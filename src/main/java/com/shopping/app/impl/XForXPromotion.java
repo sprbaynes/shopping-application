@@ -18,12 +18,14 @@ public class XForXPromotion implements Promotion{
     private MatchType matchType;
     private String match;
     private int x, forX;
+    private String description;
 
-    public XForXPromotion(int x, int forX, String match, MatchType matchType){
+    public XForXPromotion(String description, int x, int forX, String match, MatchType matchType){
         this.matchType = matchType;
         this.x = x;
         this.forX = forX;
         this.match = match;
+        this.description = description;
     }
 
     @Override
@@ -41,5 +43,10 @@ public class XForXPromotion implements Promotion{
     @Override
     public boolean isPromotionSuitableForItem(Item item) {
         return PromotionUtil.isPromotionSuitableForItem(item, match, matchType);
+    }
+
+    @Override
+    public String getPromoDescription() {
+        return description;
     }
 }

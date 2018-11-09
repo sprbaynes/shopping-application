@@ -11,9 +11,9 @@ public class CartItem {
 
     private static final Logger log = LoggerFactory.getLogger(CartItem.class);
 
-    public Item item;
-    public int quantity;
-    public Promotion promotion;
+    private Item item;
+    private int quantity;
+    private Promotion promotion;
 
     public CartItem(Item item, int quantity, Promotion promotion) {
         this.item = item;

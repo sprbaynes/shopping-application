@@ -9,4 +9,6 @@ public interface Promotion {
     double getTotalPrice(Item item, int quantity, Double cartTotal, Double itemTypeTotal);
 
     boolean isPromotionSuitableForItem(Item item);
+
+    String getPromoDescription();
 }

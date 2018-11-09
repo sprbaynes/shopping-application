@@ -19,8 +19,8 @@ public class DiscountPromotionTest {
 
     @Before
     public void setup(){
-        discountPromotionName =  new DiscountPromotion(30.00, "Protein Bars (Box)", MatchType.Name);
-        discountPromotionType =  new DiscountPromotion(30.00, "Power", MatchType.ProductType);
+        discountPromotionName =  new DiscountPromotion("30% Off",30.00, "Protein Bars (Box)", MatchType.Name);
+        discountPromotionType =  new DiscountPromotion("30% Off",30.00, "Power", MatchType.ProductType);
     }
 
     @After

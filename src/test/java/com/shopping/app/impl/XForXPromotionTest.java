@@ -20,8 +20,8 @@ public class XForXPromotionTest {
 
     @Before
     public void setup(){
-        xForXPromotionName =  new XForXPromotion(3,2,"AAA Batteries", MatchType.Name);
-        xForXPromotionType =  new XForXPromotion(3,2,"Food", MatchType.ProductType);
+        xForXPromotionName =  new XForXPromotion("3 for 2", 3,2,"AAA Batteries", MatchType.Name);
+        xForXPromotionType =  new XForXPromotion("3 for 2", 3,2,"Food", MatchType.ProductType);
     }
 
     @After

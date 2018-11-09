@@ -17,6 +17,7 @@ public class DiscountPromotion implements Promotion{
     private MatchType matchType;
     private double discountPercentage;
     private String match;
+    private String description;
 
     /* Percentage Discounts can often be have a minimum spend either on the total cart, total item type e.g. audio or
     * video games and sometimes within a specific product/product line. For the sake of speed I won't be implementing
@@ -33,10 +34,11 @@ public class DiscountPromotion implements Promotion{
                              String match, MatchType matchType){}
      * */
 
-    public DiscountPromotion(double discountPercentage, String match, MatchType matchType){
+    public DiscountPromotion(String description, double discountPercentage, String match, MatchType matchType){
         this.matchType = matchType;
         this.discountPercentage = discountPercentage;
         this.match = match;
+        this.description = description;
     }
 
     @Override
@@ -56,5 +58,10 @@ public class DiscountPromotion implements Promotion{
     @Override
     public boolean isPromotionSuitableForItem(Item item) {
         return PromotionUtil.isPromotionSuitableForItem(item, match, matchType);
+    }
+
+    @Override
+    public String getPromoDescription() {
+        return this.description;
     }
 }

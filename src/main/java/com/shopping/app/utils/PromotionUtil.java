@@ -18,8 +18,8 @@ public class PromotionUtil {
     share them with the tests without duplicating code. In the real world we'd probably fetch each promotion
     individually from a service*/
 
-    public static Promotion thirtyPercentPromotion = new DiscountPromotion(30.00, "Audio", MatchType.ProductType);
-    public static Promotion threeforTwoPromotion = new XForXPromotion(3,2,"AAA Batteries", MatchType.Name);
+    public static Promotion thirtyPercentPromotion = new DiscountPromotion("30% Off", 30.00, "Audio", MatchType.ProductType);
+    public static Promotion threeforTwoPromotion = new XForXPromotion("3 for 2",3,2,"AAA Batteries", MatchType.Name);
 
     public static List<Promotion> getPromotionList()
     {
