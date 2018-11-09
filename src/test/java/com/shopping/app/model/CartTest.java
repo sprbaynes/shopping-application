@@ -42,8 +42,6 @@ public class CartTest {
         assertNotEquals(null, item1);
         assertEquals("Headphones", item1.getName());
         assertEquals(3, cartItem1.getQuantity());
-        assertEquals(450.00, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(315.00, cart.getCartTotalWithPromotions(),0);
     }
 
     @Test
@@ -180,45 +178,45 @@ public class CartTest {
     public void testCartTotals_1(){
         cart.setItemQuantity(ItemUtil.headPhones, 3);
 
-        assertEquals(450.00, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(315.00, cart.getCartTotalWithPromotions(),0);
+        assertEquals(450.00, cart.getCartTotalBeforePromotions(), 0.001);
+        assertEquals(315.00, cart.getCartTotalWithPromotions(),0.001);
     }
 
     public void testCartTotals_2(){
         cart.setItemQuantity(ItemUtil.headPhones, 3);
         cart.setItemQuantity(ItemUtil.speakers, 2);
 
-        assertEquals(620, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(434, cart.getCartTotalWithPromotions(),0);
+        assertEquals(620, cart.getCartTotalBeforePromotions(), 0.001);
+        assertEquals(434, cart.getCartTotalWithPromotions(),0.001);
     }
 
     public void testCartTotals_3(){
         cart.setItemQuantity(ItemUtil.batteries, 3);
 
-        assertEquals(2.55, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(1.7, cart.getCartTotalWithPromotions(),0);
+        assertEquals(2.55, cart.getCartTotalBeforePromotions(), 0.001);
+        assertEquals(1.7, cart.getCartTotalWithPromotions(),0.001);
     }
 
     public void testCartTotals_4(){
         cart.setItemQuantity(ItemUtil.batteries, 4);
 
-        assertEquals(3.4, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(2.55, cart.getCartTotalWithPromotions(),0);
+        assertEquals(3.4, cart.getCartTotalBeforePromotions(), 0.001);
+        assertEquals(2.55, cart.getCartTotalWithPromotions(),0.001);
     }
 
     public void testCartTotals_5(){
         cart.setItemQuantity(ItemUtil.batteries, 6);
 
-        assertEquals(5.1, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(3.4, cart.getCartTotalWithPromotions(),0);
+        assertEquals(5.1, cart.getCartTotalBeforePromotions(), 0.001);
+        assertEquals(3.4, cart.getCartTotalWithPromotions(),0.001);
     }
 
     public void testCartTotals_6(){
         cart.setItemQuantity(ItemUtil.batteries, 6);
         cart.setItemQuantity(ItemUtil.proteinBars, 2);
 
-        assertEquals(55.1, cart.getCartTotalBeforePromotions(), 0);
-        assertEquals(53.4, cart.getCartTotalWithPromotions(),0);
+        assertEquals(55.1, cart.getCartTotalBeforePromotions(), 0.001);
+        assertEquals(53.4, cart.getCartTotalWithPromotions(),0.001);
     }
 
 

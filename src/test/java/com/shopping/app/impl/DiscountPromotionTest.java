@@ -58,7 +58,7 @@ public class DiscountPromotionTest {
         Item proteinBars = ItemUtil.proteinBars;
 
         double total = discountPromotionName.getTotalPrice(proteinBars, 1, null, null);
-        assertEquals(17.5, total, 0);
+        assertEquals(17.5, total, 0.001);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class DiscountPromotionTest {
         Item proteinBars = ItemUtil.proteinBars;
 
         double total = discountPromotionName.getTotalPrice(proteinBars, 2, null, null);
-        assertEquals(35, total, 0);
+        assertEquals(35, total, 0.001);
     }
 
 

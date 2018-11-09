@@ -36,10 +36,10 @@ public class CartItemTest {
         proteinBars.setQuantity(3);
 
         double totalBefore = proteinBars.getTotalBeforePromotions();
-        assertEquals(75, totalBefore, 0);
+        assertEquals(75, totalBefore, 0.001);
 
         double totalWith = proteinBars.getTotalWithPromotions();
-        assertEquals(75, totalWith, 0);
+        assertEquals(75, totalWith, 0.001);
     }
 
     @Test
@@ -47,10 +47,10 @@ public class CartItemTest {
         speakers.setQuantity(4);
 
         double totalBefore = speakers.getTotalBeforePromotions();
-        assertEquals(340, totalBefore, 0);
+        assertEquals(340, totalBefore, 0.001);
 
         double totalWith = speakers.getTotalWithPromotions();
-        assertEquals(238, totalWith, 0);
+        assertEquals(238, totalWith, 0.001);
     }
 
     @Test
@@ -58,10 +58,10 @@ public class CartItemTest {
         batteries.setQuantity(2);
 
         double totalBefore = batteries.getTotalBeforePromotions();
-        assertEquals(1.7, totalBefore, 0);
+        assertEquals(1.7, totalBefore, 0.001);
 
         double totalWith = batteries.getTotalWithPromotions();
-        assertEquals(1.7, totalWith, 0);
+        assertEquals(1.7, totalWith, 0.001);
     }
 
     @Test
@@ -69,10 +69,10 @@ public class CartItemTest {
         batteries.setQuantity(3);
 
         double totalBefore = batteries.getTotalBeforePromotions();
-        assertEquals(2.55, totalBefore, 0);
+        assertEquals(2.55, totalBefore, 0.001);
 
         double totalWith = batteries.getTotalWithPromotions();
-        assertEquals(1.7, totalWith, 0);
+        assertEquals(1.7, totalWith, 0.001);
     }
 
     @Test
@@ -80,9 +80,9 @@ public class CartItemTest {
         batteries.setQuantity(4);
 
         double totalBefore = batteries.getTotalBeforePromotions();
-        assertEquals(3.4, totalBefore, 0);
+        assertEquals(3.4, totalBefore, 0.001);
 
         double totalWith = batteries.getTotalWithPromotions();
-        assertEquals(2.55, totalWith, 0);
+        assertEquals(2.55, totalWith, 0.001);
     }
 }

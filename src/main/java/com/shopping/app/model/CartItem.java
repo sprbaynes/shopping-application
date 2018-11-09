@@ -50,6 +50,9 @@ public class CartItem {
     }
 
     public double getTotalWithPromotions(){
-        return this.promotion.getTotalPrice(item, quantity, null, null);
+
+        double total = (this.promotion != null)? this.promotion.getTotalPrice(item, quantity, null, null) : this.getTotalBeforePromotions();
+
+        return total;
     }
 }

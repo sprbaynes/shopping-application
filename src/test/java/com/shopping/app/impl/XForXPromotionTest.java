@@ -59,7 +59,7 @@ public class XForXPromotionTest {
         Item batteries = ItemUtil.batteries;
 
         double total = xForXPromotionName.getTotalPrice(batteries, 2, null, null);
-        assertEquals(1.7, total, 0);
+        assertEquals(1.7, total, 0.001);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class XForXPromotionTest {
         Item batteries = ItemUtil.batteries;
 
         double total = xForXPromotionName.getTotalPrice(batteries, 3, null, null);
-        assertEquals(1.7, total, 0);
+        assertEquals(1.7, total, 0.001);
     }
 
     @Test
@@ -75,6 +75,6 @@ public class XForXPromotionTest {
         Item batteries = ItemUtil.batteries;
 
         double total = xForXPromotionName.getTotalPrice(batteries, 4, null, null);
-        assertEquals(2.55, total, 0);
+        assertEquals(2.55, total, 0.001);
     }
 }
