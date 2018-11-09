@@ -15,6 +15,12 @@ public class CartItem {
     public int quantity;
     public Promotion promotion;
 
+    public CartItem(Item item, int quantity, Promotion promotion) {
+        this.item = item;
+        this.quantity = quantity;
+        this.promotion = promotion;
+    }
+
     public Item getItem() {
         return item;
     }

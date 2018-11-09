@@ -36,4 +36,9 @@ public class DiscountPromotion implements Promotion{
     public double getTotalPrice(Item item, int quantity, Double cartTotal, Double itemTypeTotal) {
         return 0;
     }
+
+    @Override
+    public boolean isPromotionSuitableForItem(Item item) {
+        return false;
+    }
 }
