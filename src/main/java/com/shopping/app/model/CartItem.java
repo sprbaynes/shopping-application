@@ -46,10 +46,10 @@ public class CartItem {
     }
 
     public double getTotalBeforePromotions(){
-        return 0;
+        return item.getPrice() * quantity;
     }
 
     public double getTotalWithPromotions(){
-        return 0;
+        return this.promotion.getTotalPrice(item, quantity, null, null);
     }
 }

@@ -41,7 +41,16 @@ public class DiscountPromotion implements Promotion{
 
     @Override
     public double getTotalPrice(Item item, int quantity, Double cartTotal, Double itemTypeTotal) {
-        return 0;
+        double price = item.getPrice();
+        double totalBeforePromo = price * quantity;
+
+        double percentageToPay = 100.00 - discountPercentage;
+        log.info("perecentage to pay is {}", percentageToPay);
+
+        double decimalPercentage = percentageToPay / 100.00;
+        double totalWithPromo = decimalPercentage * totalBeforePromo;
+
+        return totalWithPromo;
     }
 
     @Override
