@@ -1,11 +1,16 @@
 package com.shopping.app.model;
 
 import com.shopping.app.interfaces.Promotion;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by baynescorps on 09/11/2018.
  */
 public class CartItem {
+
+    private static final Logger log = LoggerFactory.getLogger(CartItem.class);
+
     public Item item;
     public double quantity;
     public Promotion promotion;

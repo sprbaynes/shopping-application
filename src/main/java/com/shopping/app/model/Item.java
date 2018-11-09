@@ -1,9 +1,15 @@
 package com.shopping.app.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by baynescorps on 09/11/2018.
  */
 public class Item {
+
+    private static final Logger log = LoggerFactory.getLogger(Item.class);
+
     String type;
     String name;
     double price;
