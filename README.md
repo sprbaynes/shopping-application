@@ -16,6 +16,6 @@ If the tests are unsuccessful the build should fail
 
 To run the application execute the following command:
 
-1. java -jar shopping-app-1.0.jar
+1. java -jar target/shopping-app-1.0.jar
 
 
