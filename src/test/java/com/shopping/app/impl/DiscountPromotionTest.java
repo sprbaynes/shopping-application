@@ -47,10 +47,10 @@ public class DiscountPromotionTest {
         Item proteinBars = ItemUtil.proteinBars;
 
         boolean isPromoSuitable1 = discountPromotionType.isPromotionSuitableForItem(proteinBars);
-        assertEquals(true, isPromoSuitable1);
+        assertEquals(false, isPromoSuitable1);
 
         boolean isPromoSuitable2 = discountPromotionType.isPromotionSuitableForItem(batteries);
-        assertEquals(false, isPromoSuitable2);
+        assertEquals(true, isPromoSuitable2);
     }
 
     @Test

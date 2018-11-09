@@ -3,6 +3,7 @@ package com.shopping.app.impl;
 import com.shopping.app.enums.MatchType;
 import com.shopping.app.interfaces.Promotion;
 import com.shopping.app.model.Item;
+import com.shopping.app.utils.PromotionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,8 +15,15 @@ public class XForXPromotion implements Promotion{
 
     private static final Logger log = LoggerFactory.getLogger(XForXPromotion.class);
 
-    public XForXPromotion(int x, int forX, String match, MatchType matchType){
+    private MatchType matchType;
+    private String match;
+    private int x, forX;
 
+    public XForXPromotion(int x, int forX, String match, MatchType matchType){
+        this.matchType = matchType;
+        this.x = x;
+        this.forX = forX;
+        this.match = match;
     }
 
     @Override
@@ -25,6 +33,6 @@ public class XForXPromotion implements Promotion{
 
     @Override
     public boolean isPromotionSuitableForItem(Item item) {
-        return false;
+        return PromotionUtil.isPromotionSuitableForItem(item, match, matchType);
     }
 }

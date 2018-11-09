@@ -4,6 +4,7 @@ import com.shopping.app.enums.MatchType;
 import com.shopping.app.impl.DiscountPromotion;
 import com.shopping.app.impl.XForXPromotion;
 import com.shopping.app.interfaces.Promotion;
+import com.shopping.app.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,22 @@ public class PromotionUtil {
         promotionList.add(thirtyPercentPromotion);
         promotionList.add(threeforTwoPromotion);
         return promotionList;
+    }
+
+    public static boolean isPromotionSuitableForItem(Item item, String match, MatchType matchType) {
+        String itemName = item.getName();
+        String itemType = item.getType();
+
+        if(matchType == MatchType.Name && itemName.equals(match))
+        {
+            return true;
+        }
+        if(matchType == MatchType.ProductType && itemType.equals(match))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

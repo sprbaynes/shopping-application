@@ -3,6 +3,7 @@ package com.shopping.app.impl;
 import com.shopping.app.enums.MatchType;
 import com.shopping.app.interfaces.Promotion;
 import com.shopping.app.model.Item;
+import com.shopping.app.utils.PromotionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,10 @@ import org.slf4j.LoggerFactory;
 public class DiscountPromotion implements Promotion{
 
     private static final Logger log = LoggerFactory.getLogger(DiscountPromotion.class);
+
+    private MatchType matchType;
+    private double discountPercentage;
+    private String match;
 
     /* Percentage Discounts can often be have a minimum spend either on the total cart, total item type e.g. audio or
     * video games and sometimes within a specific product/product line. For the sake of speed I won't be implementing
@@ -29,7 +34,9 @@ public class DiscountPromotion implements Promotion{
      * */
 
     public DiscountPromotion(double discountPercentage, String match, MatchType matchType){
-
+        this.matchType = matchType;
+        this.discountPercentage = discountPercentage;
+        this.match = match;
     }
 
     @Override
@@ -39,6 +46,6 @@ public class DiscountPromotion implements Promotion{
 
     @Override
     public boolean isPromotionSuitableForItem(Item item) {
-        return false;
+        return PromotionUtil.isPromotionSuitableForItem(item, match, matchType);
     }
 }
