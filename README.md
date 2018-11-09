@@ -18,4 +18,10 @@ To run the application execute the following command:
 
 1. java -jar target/shopping-app-1.0.jar
 
+## Additional Notes
+
+Given more time there are a couple of changes I would make:
+1. I would switch over the Item price data type to BigDecimal for the purpose of maintaining precision in price calculations
+2. Introduce more logging for debugging purposes.
+
 
