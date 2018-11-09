@@ -12,7 +12,7 @@ public class CartItem {
     private static final Logger log = LoggerFactory.getLogger(CartItem.class);
 
     public Item item;
-    public double quantity;
+    public int quantity;
     public Promotion promotion;
 
     public Item getItem() {
@@ -23,11 +23,11 @@ public class CartItem {
         this.item = item;
     }
 
-    public double getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

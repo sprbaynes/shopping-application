@@ -27,11 +27,17 @@ public class Cart {
         return null;
     }
 
+    public CartItem getCartItem(Item item)
+    {
+        return null;
+    }
+
+
     public double getCartTotalBeforePromotions(){
         return 0;
     }
 
-    public double getCartTotalWithPromotions(double cartTotal, double itemTypeTotal){
+    public double getCartTotalWithPromotions(){
         return 0;
     }
 

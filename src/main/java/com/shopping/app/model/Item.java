@@ -14,6 +14,12 @@ public class Item {
     String name;
     double price;
 
+    public Item(String type, String name, double price) {
+        this.type = type;
+        this.name = name;
+        this.price = price;
+    }
+
     public String getType() {
         return type;
     }
@@ -36,5 +42,29 @@ public class Item {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Item item = (Item) o;
+
+        if (Double.compare(item.price, price) != 0) return false;
+        if (!type.equals(item.type)) return false;
+        return name.equals(item.name);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = type.hashCode();
+        result = 31 * result + name.hashCode();
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }

@@ -13,6 +13,6 @@ public class ItemUtil {
     public static Item headPhones = new Item("Audio","Headphones",150.00);
     public static Item speakers = new Item("Audio","Speakers",85);
     public static Item batteries = new Item("Power", "AAA Batteries", 0.85);
-    public static Item proteinBars = new Item("Food", "Food", 0.85);
+    public static Item proteinBars = new Item("Food", "Protein Bars (Box)", 0.85);
 
 }
