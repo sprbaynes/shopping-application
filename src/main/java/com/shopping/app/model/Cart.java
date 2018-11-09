@@ -66,11 +66,25 @@ public class Cart {
 
 
     public double getCartTotalBeforePromotions(){
-        return 0;
+        double total = 0;
+
+        for(CartItem cartItem: cartItemsList)
+        {
+            total += cartItem.getTotalBeforePromotions();
+        }
+
+        return total;
     }
 
     public double getCartTotalWithPromotions(){
-        return 0;
+        double total = 0;
+
+        for(CartItem cartItem: cartItemsList)
+        {
+            total += cartItem.getTotalWithPromotions();
+        }
+
+        return total;
     }
 
     private CartItem addItemToCart(Item item, int quantity)

@@ -176,6 +176,7 @@ public class CartTest {
         assertEquals(4, cartItem3.getQuantity());
     }
 
+    @Test
     public void testCartTotals_1(){
         cart.setItemQuantity(ItemUtil.headPhones, 3);
 
@@ -183,6 +184,7 @@ public class CartTest {
         assertEquals(315.00, cart.getCartTotalWithPromotions(),0.001);
     }
 
+    @Test
     public void testCartTotals_2(){
         cart.setItemQuantity(ItemUtil.headPhones, 3);
         cart.setItemQuantity(ItemUtil.speakers, 2);
@@ -191,6 +193,7 @@ public class CartTest {
         assertEquals(434, cart.getCartTotalWithPromotions(),0.001);
     }
 
+    @Test
     public void testCartTotals_3(){
         cart.setItemQuantity(ItemUtil.batteries, 3);
 
@@ -198,6 +201,7 @@ public class CartTest {
         assertEquals(1.7, cart.getCartTotalWithPromotions(),0.001);
     }
 
+    @Test
     public void testCartTotals_4(){
         cart.setItemQuantity(ItemUtil.batteries, 4);
 
@@ -205,6 +209,7 @@ public class CartTest {
         assertEquals(2.55, cart.getCartTotalWithPromotions(),0.001);
     }
 
+    @Test
     public void testCartTotals_5(){
         cart.setItemQuantity(ItemUtil.batteries, 6);
 
@@ -212,6 +217,7 @@ public class CartTest {
         assertEquals(3.4, cart.getCartTotalWithPromotions(),0.001);
     }
 
+    @Test
     public void testCartTotals_6(){
         cart.setItemQuantity(ItemUtil.batteries, 6);
         cart.setItemQuantity(ItemUtil.proteinBars, 2);

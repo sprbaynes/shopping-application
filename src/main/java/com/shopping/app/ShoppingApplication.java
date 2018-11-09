@@ -13,6 +13,7 @@ public class ShoppingApplication {
     public static void main(String... args) {
 
         log.info("Starting Shopping ShoppingApplication");
+
     }
 
 }
