@@ -10,9 +10,9 @@ public class Item {
 
     private static final Logger log = LoggerFactory.getLogger(Item.class);
 
-    String type;
-    String name;
-    double price;
+    private String type;
+    private String name;
+    private double price;
 
     public Item(String type, String name, double price) {
         this.type = type;

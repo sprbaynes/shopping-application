@@ -36,7 +36,8 @@ public class CartTest {
 
         assertEquals(1, cartItems.size());
 
-        CartItem cartItem1 = cart.getCartItem(ItemUtil.headPhones);;
+        CartItem cartItem1 = cart.getCartItem(ItemUtil.headPhones);
+        assertNotEquals(null, cartItem1);
         Item item1 = cartItem1.getItem();
 
         assertNotEquals(null, item1);
@@ -53,7 +54,7 @@ public class CartTest {
 
         List<CartItem> cartItems = cart.getCartItems();
 
-        assertEquals(9, cartItems.size());
+        assertEquals(3, cartItems.size());
 
         CartItem cartItem1 = cart.getCartItem(ItemUtil.headPhones);
         CartItem cartItem2 = cart.getCartItem(ItemUtil.batteries);
@@ -86,21 +87,21 @@ public class CartTest {
 
         List<CartItem> cartItems = cart.getCartItems();
 
-        assertEquals(9, cartItems.size());
+        assertEquals(2, cartItems.size());
 
         CartItem cartItem1 = cart.getCartItem(ItemUtil.headPhones);
         CartItem cartItem2 = cart.getCartItem(ItemUtil.batteries);
+        assertEquals(null, cartItem2);
         CartItem cartItem3 = cart.getCartItem(ItemUtil.proteinBars);
 
         Item item1 = cartItem1.getItem();
-        Item item2 = cartItem2.getItem();
         Item item3 = cartItem3.getItem();
 
         assertNotEquals(null, item1);
         assertEquals("Headphones", item1.getName());
         assertEquals(3, cartItem1.getQuantity());
 
-        assertEquals(null, item2);
+
 
         assertNotEquals(null, item3);
         assertEquals("Protein Bars (Box)", item3.getName());
@@ -118,7 +119,7 @@ public class CartTest {
 
         List<CartItem> cartItems = cart.getCartItems();
 
-        assertEquals(9, cartItems.size());
+        assertEquals(3, cartItems.size());
 
         CartItem cartItem1 = cart.getCartItem(ItemUtil.headPhones);
         CartItem cartItem2 = cart.getCartItem(ItemUtil.batteries);
@@ -152,7 +153,7 @@ public class CartTest {
 
         List<CartItem> cartItems = cart.getCartItems();
 
-        assertEquals(9, cartItems.size());
+        assertEquals(3, cartItems.size());
 
         CartItem cartItem1 = cart.getCartItem(ItemUtil.headPhones);
         CartItem cartItem2 = cart.getCartItem(ItemUtil.batteries);
