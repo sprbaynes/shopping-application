@@ -28,7 +28,14 @@ public class XForXPromotion implements Promotion{
 
     @Override
     public double getTotalPrice(Item item, int quantity, Double cartTotal, Double itemTypeTotal) {
-        return 0;
+        double price = item.getPrice();
+        int numOfPromotions = quantity / this.x;
+        int numNotInPromotion = quantity % this.x;
+        int numToPayFor = (numOfPromotions * this.forX) + numNotInPromotion;
+
+        double totalToPayFor = price * numToPayFor;
+
+        return totalToPayFor;
     }
 
     @Override
