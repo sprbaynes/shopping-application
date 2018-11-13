@@ -2,6 +2,7 @@ package com.shopping.app;
 
 import com.shopping.app.model.Cart;
 import com.shopping.app.model.Item;
+import com.shopping.app.utils.CartItemUtil;
 import com.shopping.app.utils.ItemUtil;
 import com.shopping.app.utils.PromotionUtil;
 import org.junit.After;
@@ -34,9 +35,9 @@ public class ShoppingApplicationTest {
 
     @Test
     public void testMainScenario() {
-        cart.setItemQuantity(speakers, 1);
-        cart.setItemQuantity(batteries, 5);
-        cart.setItemQuantity(proteinBars, 2);
+        cart.setItemQuantity(speakers, 1, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(batteries, 5, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(proteinBars, 2, CartItemUtil.isCartItemNull());
 
         //85 + (5 x 0.85) + (2 x 25) = 139.25
         double totalBeforePromo = cart.getCartTotalBeforePromotions();

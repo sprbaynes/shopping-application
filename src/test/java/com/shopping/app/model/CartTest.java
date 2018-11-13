@@ -1,5 +1,6 @@
 package com.shopping.app.model;
 
+import com.shopping.app.utils.CartItemUtil;
 import com.shopping.app.utils.ItemUtil;
 import com.shopping.app.utils.PromotionUtil;
 import org.junit.After;
@@ -31,7 +32,7 @@ public class CartTest {
     @Test
     public void testAddingCartItems_1()
     {
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
         List<CartItem> cartItems = cart.getCartItems();
 
         assertEquals(1, cartItems.size());
@@ -48,9 +49,9 @@ public class CartTest {
     @Test
     public void testAddingCartItems_2()
     {
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
-        cart.setItemQuantity(ItemUtil.batteries, 2);
-        cart.setItemQuantity(ItemUtil.proteinBars, 4);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 2, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.proteinBars, 4, CartItemUtil.isCartItemNull());
 
         List<CartItem> cartItems = cart.getCartItems();
 
@@ -80,10 +81,10 @@ public class CartTest {
     @Test
     public void testRemovingCartItems_1()
     {
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
-        cart.setItemQuantity(ItemUtil.batteries, 2);
-        cart.setItemQuantity(ItemUtil.proteinBars, 4);
-        cart.setItemQuantity(ItemUtil.batteries, 0);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 2, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.proteinBars, 4, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 0, CartItemUtil.isCartItemNull());
 
         List<CartItem> cartItems = cart.getCartItems();
 
@@ -112,10 +113,10 @@ public class CartTest {
     @Test
     public void testUpdatingCartItems_1()
     {
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
-        cart.setItemQuantity(ItemUtil.batteries, 2);
-        cart.setItemQuantity(ItemUtil.proteinBars, 4);
-        cart.setItemQuantity(ItemUtil.batteries, 5);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 2, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.proteinBars, 4, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 5, CartItemUtil.isCartItemNull());
 
         List<CartItem> cartItems = cart.getCartItems();
 
@@ -145,11 +146,11 @@ public class CartTest {
     @Test
     public void testUpdatingCartItems_2()
     {
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
-        cart.setItemQuantity(ItemUtil.batteries, 2);
-        cart.setItemQuantity(ItemUtil.proteinBars, 4);
-        cart.setItemQuantity(ItemUtil.batteries, 5);
-        cart.setItemQuantity(ItemUtil.headPhones, 8);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 2, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.proteinBars, 4, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.batteries, 5, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.headPhones, 8, CartItemUtil.isCartItemNull());
 
         List<CartItem> cartItems = cart.getCartItems();
 
@@ -178,7 +179,7 @@ public class CartTest {
 
     @Test
     public void testCartTotals_1(){
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
 
         assertEquals(450.00, cart.getCartTotalBeforePromotions(), 0.001);
         assertEquals(315.00, cart.getCartTotalWithPromotions(),0.001);
@@ -186,8 +187,8 @@ public class CartTest {
 
     @Test
     public void testCartTotals_2(){
-        cart.setItemQuantity(ItemUtil.headPhones, 3);
-        cart.setItemQuantity(ItemUtil.speakers, 2);
+        cart.setItemQuantity(ItemUtil.headPhones, 3, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.speakers, 2, CartItemUtil.isCartItemNull());
 
         assertEquals(620, cart.getCartTotalBeforePromotions(), 0.001);
         assertEquals(434, cart.getCartTotalWithPromotions(),0.001);
@@ -195,7 +196,7 @@ public class CartTest {
 
     @Test
     public void testCartTotals_3(){
-        cart.setItemQuantity(ItemUtil.batteries, 3);
+        cart.setItemQuantity(ItemUtil.batteries, 3, CartItemUtil.isCartItemNull());
 
         assertEquals(2.55, cart.getCartTotalBeforePromotions(), 0.001);
         assertEquals(1.7, cart.getCartTotalWithPromotions(),0.001);
@@ -203,7 +204,7 @@ public class CartTest {
 
     @Test
     public void testCartTotals_4(){
-        cart.setItemQuantity(ItemUtil.batteries, 4);
+        cart.setItemQuantity(ItemUtil.batteries, 4, CartItemUtil.isCartItemNull());
 
         assertEquals(3.4, cart.getCartTotalBeforePromotions(), 0.001);
         assertEquals(2.55, cart.getCartTotalWithPromotions(),0.001);
@@ -211,7 +212,7 @@ public class CartTest {
 
     @Test
     public void testCartTotals_5(){
-        cart.setItemQuantity(ItemUtil.batteries, 6);
+        cart.setItemQuantity(ItemUtil.batteries, 6, CartItemUtil.isCartItemNull());
 
         assertEquals(5.1, cart.getCartTotalBeforePromotions(), 0.001);
         assertEquals(3.4, cart.getCartTotalWithPromotions(),0.001);
@@ -219,8 +220,8 @@ public class CartTest {
 
     @Test
     public void testCartTotals_6(){
-        cart.setItemQuantity(ItemUtil.batteries, 6);
-        cart.setItemQuantity(ItemUtil.proteinBars, 2);
+        cart.setItemQuantity(ItemUtil.batteries, 6, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(ItemUtil.proteinBars, 2, CartItemUtil.isCartItemNull());
 
         assertEquals(55.1, cart.getCartTotalBeforePromotions(), 0.001);
         assertEquals(53.4, cart.getCartTotalWithPromotions(),0.001);

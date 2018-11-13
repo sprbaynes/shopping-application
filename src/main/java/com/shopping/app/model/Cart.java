@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Created by baynescorps on 09/11/2018.
@@ -23,13 +25,15 @@ public class Cart {
         this.cartItemsList = new ArrayList<>();
     }
 
-    public void setItemQuantity(Item item, int quantity)
+    /*I've only used a predicate here to demonstrate use of Java 8 features. I probably wouldn't use one here
+    * under normal circumstances as it assumes too much knowledge of the code that underlies the method*/
+    public void setItemQuantity(Item item, int quantity, Predicate<CartItem> itemPredicate)
     {
         log.debug("About to add/update item in cart");
 
         CartItem cartItem = getCartItem(item);
 
-        if(cartItem == null)
+        if(itemPredicate.test(cartItem))
         {
             this.addItemToCart(item, quantity);
         }
@@ -49,17 +53,15 @@ public class Cart {
 
         CartItem foundCartItem = null;
 
-        for(CartItem cartItem : cartItemsList)
-        {
-            Item cItem = cartItem.getItem();
-            String cItemName = cItem.getName();
-
-            if(itemName.equals(cItemName))
-            {
-                foundCartItem = cartItem;
-                break;
+        Optional<CartItem> cartItemOptional = cartItemsList.stream().filter(
+            (cartItem)->{
+                Item cItem = cartItem.getItem();
+                String cItemName = cItem.getName();
+                return (itemName.equals(cItemName));
             }
-        }
+        ).findFirst();
+
+        foundCartItem = cartItemOptional.orElse(null);
 
         return foundCartItem;
     }
@@ -68,10 +70,7 @@ public class Cart {
     public double getCartTotalBeforePromotions(){
         double total = 0;
 
-        for(CartItem cartItem: cartItemsList)
-        {
-            total += cartItem.getTotalBeforePromotions();
-        }
+        total = cartItemsList.stream().mapToDouble( cartItem -> cartItem.getTotalBeforePromotions()).sum();
 
         return total;
     }
@@ -79,10 +78,7 @@ public class Cart {
     public double getCartTotalWithPromotions(){
         double total = 0;
 
-        for(CartItem cartItem: cartItemsList)
-        {
-            total += cartItem.getTotalWithPromotions();
-        }
+        total = cartItemsList.stream().mapToDouble( cartItem -> cartItem.getTotalWithPromotions()).sum();
 
         return total;
     }
@@ -123,18 +119,11 @@ public class Cart {
 
     private Promotion getPromotionForItem(Item item)
     {
-        Promotion foundPromotion = null;
+        Optional<Promotion> promotionOptional = promotionList.stream().filter(
+                (p) -> p.isPromotionSuitableForItem(item)
+            ).findFirst();
 
-        for(Promotion promotion: this.promotionList)
-        {
-            boolean isPromoSuitable = promotion.isPromotionSuitableForItem(item);
-
-            if(isPromoSuitable)
-            {
-                foundPromotion = promotion;
-                break;
-            }
-        }
+        Promotion foundPromotion = promotionOptional.orElse(null);
 
         return foundPromotion;
     }

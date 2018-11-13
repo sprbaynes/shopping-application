@@ -4,11 +4,13 @@ import com.shopping.app.interfaces.Promotion;
 import com.shopping.app.model.Cart;
 import com.shopping.app.model.CartItem;
 import com.shopping.app.model.Item;
+import com.shopping.app.utils.CartItemUtil;
 import com.shopping.app.utils.ItemUtil;
 import com.shopping.app.utils.PromotionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -27,9 +29,9 @@ public class ShoppingApplication {
         Item batteries = ItemUtil.batteries;
         Item proteinBars = ItemUtil.proteinBars;
 
-        cart.setItemQuantity(speakers, 1);
-        cart.setItemQuantity(batteries, 5);
-        cart.setItemQuantity(proteinBars, 2);
+        cart.setItemQuantity(speakers, 1, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(batteries, 5, CartItemUtil.isCartItemNull());
+        cart.setItemQuantity(proteinBars, 2, CartItemUtil.isCartItemNull());
 
         outputCartToConsole(cart);
     }
@@ -60,11 +62,13 @@ public class ShoppingApplication {
 
         cartSB.append("------------------------------\n");
 
+        DecimalFormat decimalFormat = new DecimalFormat("###,###.00");
+
         double totalBeforePromo = cart.getCartTotalBeforePromotions();
-        cartSB.append(String.format("Total before promotion(s): %s\n", totalBeforePromo));
+        cartSB.append(String.format("Total before promotion(s): %s\n", decimalFormat.format(totalBeforePromo)));
 
         double totalWithPromo = cart.getCartTotalWithPromotions();
-        cartSB.append(String.format("Total with promotion(s): %s\n", totalWithPromo));
+        cartSB.append(String.format("Total with promotion(s): %s\n", decimalFormat.format(totalWithPromo)));
 
         cartSB.append("------------------------------\n");
         log.info(cartSB.toString());
